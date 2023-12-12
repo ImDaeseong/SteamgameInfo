@@ -1,8 +1,0 @@
-D:\Visual Studio 2008\SteamgameInfo\bin\Debug\SteamgameInfo.exe
-D:\Visual Studio 2008\SteamgameInfo\bin\Debug\SteamgameInfo.pdb
-D:\Visual Studio 2008\SteamgameInfo\obj\Debug\ResolveAssemblyReference.cache
-D:\Visual Studio 2008\SteamgameInfo\obj\Debug\SteamgameInfo.Form1.resources
-D:\Visual Studio 2008\SteamgameInfo\obj\Debug\SteamgameInfo.Properties.Resources.resources
-D:\Visual Studio 2008\SteamgameInfo\obj\Debug\SteamgameInfo.csproj.GenerateResource.Cache
-D:\Visual Studio 2008\SteamgameInfo\obj\Debug\SteamgameInfo.exe
-D:\Visual Studio 2008\SteamgameInfo\obj\Debug\SteamgameInfo.pdb

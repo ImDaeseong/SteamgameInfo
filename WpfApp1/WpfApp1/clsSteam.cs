@@ -1,13 +1,11 @@
-﻿using System;
+﻿using Microsoft.Win32;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Diagnostics;
 using System.IO;
-using Microsoft.Win32;
 
-namespace SteamgameInfo
-{    
+namespace WpfApp1
+{
+
     public class clsSteam
     {
         private static clsSteam selfInstance = null;
@@ -21,7 +19,7 @@ namespace SteamgameInfo
         }
 
         public clsSteam()
-        { 
+        {
         }
 
         ~clsSteam()
@@ -32,14 +30,14 @@ namespace SteamgameInfo
         private List<SteamItem> steamItem = new List<SteamItem>();
         public List<SteamItem> STEAM_ITEM
         {
-            get { return steamItem; }           
+            get { return steamItem; }
         }
 
         public string GetSteamPath(string skey)
         {
             string strValue = "";
             try
-            {                
+            {
                 RegistryKey Reg = Registry.CurrentUser.OpenSubKey("Software\\Valve\\Steam", true);
                 if (Reg == null)
                 {
@@ -53,7 +51,7 @@ namespace SteamgameInfo
             {
                 return "";
             }
-            return strValue;  
+            return strValue;
         }
 
         public void KillSteamProcess()
@@ -64,7 +62,7 @@ namespace SteamgameInfo
                 process.Kill();
             }
         }
-        
+
         public bool StartSteam(string strUserName, string strPassword)
         {
             KillSteamProcess();
@@ -82,7 +80,7 @@ namespace SteamgameInfo
         {
             string strPath = string.Format("{0}\\Steam.exe", GetSteamPath("SteamPath"));
             if (File.Exists(strPath))
-            {                
+            {
                 Process.Start(strPath, "-shutdown");
                 return true;
             }
@@ -96,7 +94,7 @@ namespace SteamgameInfo
 
             StreamReader reader = new StreamReader(strPath);
             using (reader)
-            {  
+            {
                 string line = reader.ReadLine();
                 while (line != null)
                 {
@@ -104,7 +102,7 @@ namespace SteamgameInfo
                         strAppid = line.Replace("appid", "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
                     else if (line.Contains("installdir"))
                         strInstallDir = line.Replace("installdir", "").Replace("\"", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Trim();
-                 
+
                     line = reader.ReadLine();
                 }
             }
@@ -132,7 +130,7 @@ namespace SteamgameInfo
             return true;
         }
     }
-    
+
     public class SteamItem
     {
         public SteamItem(string appid, string installdir)
